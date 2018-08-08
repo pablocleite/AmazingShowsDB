@@ -8,19 +8,20 @@
 
 import Foundation
 
-protocol ShowsCollectionInteractorProtocol: AnyObject {
-  var delegate: ShowsCollectionInteractorDelegate? {get set}
+protocol ShowCollectionInteractorProtocol: AnyObject {
+  var delegate: ShowCollectionInteractorDelegate? {get set}
   
   func loadShows()
 }
 
-protocol ShowsCollectionInteractorDelegate: AnyObject {
+protocol ShowCollectionInteractorDelegate: AnyObject {
   func didFinishLoadingShows(shows: [ShowViewModel])
+  func loadingShowsFailed(_ error: Error)
 }
 
-class ShowCollectionInteractor {
+class ShowCollectionInteractor: ShowCollectionInteractorProtocol {
   
-  weak var delegate: ShowsCollectionInteractorDelegate?
+  weak var delegate: ShowCollectionInteractorDelegate?
   
   private var shows:[Show]? {
     didSet {
@@ -37,8 +38,7 @@ class ShowCollectionInteractor {
       case .success(let shows):
         self?.shows = shows
       case .error(let error):
-        print(error.localizedDescription)
-        //TODO: Call Delegate!
+        self?.delegate?.loadingShowsFailed(error)
       }
     }
   }

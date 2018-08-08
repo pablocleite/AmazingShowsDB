@@ -9,8 +9,12 @@
 import UIKit
 import Kingfisher
 
-//TODO: Define a protocol for the VC and expose the shows var
-class ShowsCollectionViewController: UIViewController {
+protocol ShowCollectionViewProtocol {
+  var presenter: ShowCollectionPresenterProtocol! { get set }
+  var shows: [ShowViewModel]? {get set}
+}
+
+class ShowsCollectionViewController: UIViewController, ShowCollectionViewProtocol {
 
     @IBOutlet weak var showsCollectionView: UICollectionView! {
         didSet {
@@ -19,7 +23,15 @@ class ShowsCollectionViewController: UIViewController {
         }
     }
     
-    var shows: [ShowViewModel]? {
+
+  //TODO: use dependency injection here!
+  var presenter: ShowCollectionPresenterProtocol! = ShowCollectionPresenter() {
+    didSet {
+      presenter.view = self
+    }
+  }
+  
+  var shows: [ShowViewModel]? {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.showsCollectionView.reloadData()
@@ -27,32 +39,15 @@ class ShowsCollectionViewController: UIViewController {
         }
     }
   
-  var interactor: ShowsCollectionInteractor! {
-    didSet {
-      interactor.delegate = self
-    }
+  //TODO: Remove method below after DI
+  override func viewDidLoad() {
+    presenter.view = self
   }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        interactor = ShowsCollectionInteractor()
-    }
     
     override func viewWillAppear(_ animated: Bool) {
-        //TODO: Move this OUT of the view controller, use a nice protocol to talk to a presenter or something better.
-      interactor.loadShows()
+      presenter.updateView()
     }
-
-  
-
 }
-
-extension ShowsCollectionViewController: ShowsCollectionInteractorDelegate {
-  func didFinishLoadingShows(shows: [ShowViewModel]) {
-    self.shows = shows
-  }
-}
-
 
 extension ShowsCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
   
@@ -65,7 +60,7 @@ extension ShowsCollectionViewController: UICollectionViewDelegate, UICollectionV
         if let showCollectionViewCell = cell as? ShowCollectionViewCell,
             let show = shows?[indexPath.row] {
             showCollectionViewCell.titleLabel.text = show.title
-            showCollectionViewCell.posterImageView.kf.indicatorType = .activity
+          //TODO: Set a placeholder image
             showCollectionViewCell.posterImageView.kf.setImage(with: show.posterUrl)
         }
         return cell

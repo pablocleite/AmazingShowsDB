@@ -30,7 +30,7 @@ final class TMDBPosterDataManager: BaseDataManager<TMDBPosterEntity> {
     
     func buildImageUrl() -> URL? {
         let endpoint = "tv" + "/\(showId)" + "/images" + apiKeyParam
-        return TMDBPosterDataManager.tmdbBaseUrl?.appendingPathComponent(endpoint)
+        return URL(string: endpoint, relativeTo: TMDBPosterDataManager.tmdbBaseUrl)
     }
   
   override func performFetch(result: @escaping (Result<TMDBPosterEntity>) -> Void) {
