@@ -13,6 +13,7 @@ protocol ShowsCollectionRouterProtocol {
 }
 
 class ShowsCollectionRouter: ShowsCollectionRouterProtocol {
+    
     var navigationViewController: UINavigationController?
     
     static func presentShowsCollection() -> UIViewController {
@@ -24,6 +25,6 @@ class ShowsCollectionRouter: ShowsCollectionRouterProtocol {
         presenter.interactor = interactor
         showCollectionViewController.presenter = presenter
         
-       return UINavigationController(rootViewController: mainViewController)
+        return UINavigationController(rootViewController: mainViewController)
     }
 }

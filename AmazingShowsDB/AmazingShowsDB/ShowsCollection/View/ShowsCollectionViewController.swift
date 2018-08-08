@@ -39,9 +39,16 @@ class ShowsCollectionViewController: UIViewController, ShowCollectionViewProtoco
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.barStyle = .blackTranslucent
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         presenter.updateView()
     }
+
 }
 
 extension ShowsCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
