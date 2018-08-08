@@ -16,6 +16,8 @@ protocol ShowCollectionViewProtocol {
 
 class ShowsCollectionViewController: UIViewController, ShowCollectionViewProtocol {
     
+    static let identifier = "ShowCollectionViewController"
+    
     @IBOutlet weak var showsCollectionView: UICollectionView! {
         didSet {
             showsCollectionView.delegate = self

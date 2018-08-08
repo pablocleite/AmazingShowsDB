@@ -18,17 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
       
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        //TODO: Move this to a router?
-        let mainViewController = storyBoard.instantiateViewController(withIdentifier: "ShowCollectionViewController")
-        var showCollectionViewController = mainViewController as! ShowCollectionViewProtocol
-        let presenter = ShowCollectionPresenter()
-        let interactor = ShowCollectionInteractor()
-        presenter.interactor = interactor
-        showCollectionViewController.presenter = presenter
-        
-        let navigationController = UINavigationController(rootViewController: mainViewController)
-        self.window?.rootViewController = navigationController
+        let rootViewController = ShowsCollectionRouter.presentShowsCollection()
+        self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
 
         return true

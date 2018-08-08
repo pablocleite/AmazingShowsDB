@@ -10,6 +10,7 @@
 		787C4AD7211B740200ADAEEE /* ShowCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787C4AD6211B740200ADAEEE /* ShowCollectionPresenter.swift */; };
 		78B246B2211B3AF300AABCE4 /* BaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B246B1211B3AF300AABCE4 /* BaseDataManager.swift */; };
 		78B246B5211B575800AABCE4 /* ShowCollectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B246B4211B575800AABCE4 /* ShowCollectionInteractor.swift */; };
+		AA0E8E0C211BAFC70072B67E /* ShowsCollectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E8E0B211BAFC70072B67E /* ShowsCollectionRouter.swift */; };
 		AA3FF131211A4BAA00F44EDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF130211A4BAA00F44EDE /* AppDelegate.swift */; };
 		AA3FF133211A4BAA00F44EDE /* ShowsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF132211A4BAA00F44EDE /* ShowsCollectionViewController.swift */; };
 		AA3FF136211A4BAA00F44EDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3FF134211A4BAA00F44EDE /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		787C4AD6211B740200ADAEEE /* ShowCollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCollectionPresenter.swift; sourceTree = "<group>"; };
 		78B246B1211B3AF300AABCE4 /* BaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataManager.swift; sourceTree = "<group>"; };
 		78B246B4211B575800AABCE4 /* ShowCollectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCollectionInteractor.swift; sourceTree = "<group>"; };
+		AA0E8E0B211BAFC70072B67E /* ShowsCollectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsCollectionRouter.swift; sourceTree = "<group>"; };
 		AA3FF12D211A4BAA00F44EDE /* AmazingShowsDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingShowsDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3FF130211A4BAA00F44EDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA3FF132211A4BAA00F44EDE /* ShowsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		AA0E8E0A211BAF950072B67E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AA0E8E0B211BAFC70072B67E /* ShowsCollectionRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		AA3FF124211A4BAA00F44EDE = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +145,7 @@
 		AA3FF142211A532B00F44EDE /* ShowsCollection */ = {
 			isa = PBXGroup;
 			children = (
+				AA0E8E0A211BAF950072B67E /* Router */,
 				787C4AD5211B73BF00ADAEEE /* Presenter */,
 				78B246B3211B574000AABCE4 /* Interactor */,
 				AA3FF14C211A77D400F44EDE /* ViewModel */,
@@ -326,6 +337,7 @@
 				AA3FF156211A90AE00F44EDE /* TMDBPosterEntity.swift in Sources */,
 				787C4AD7211B740200ADAEEE /* ShowCollectionPresenter.swift in Sources */,
 				78B246B5211B575800AABCE4 /* ShowCollectionInteractor.swift in Sources */,
+				AA0E8E0C211BAFC70072B67E /* ShowsCollectionRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
