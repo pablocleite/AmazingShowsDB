@@ -15,7 +15,7 @@
         <!--Shows-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Shows" id="BYZ-38-t0r" customClass="ShowsCollectionViewController" customModule="AmazingShowsDB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowCollectionViewController" title="Shows" id="BYZ-38-t0r" customClass="ShowsCollectionViewController" customModule="AmazingShowsDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,7 +89,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uKA-li-fym">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ff7-TW-qRK" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainViewController" automaticallyAdjustsScrollViewInsets="NO" id="Ff7-TW-qRK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="OUr-Lv-tMm">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>

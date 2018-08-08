@@ -13,6 +13,10 @@ enum Result<T> {
   case error(Error)
 }
 
+enum RequestError: Error {
+    case unspecified
+}
+
 class BaseDataManager<T> {
   
   var sessionConfiguration: URLSessionConfiguration?
@@ -35,7 +39,7 @@ class BaseDataManager<T> {
         if let error = error {
           result(.error(error))
         } else {
-          //TODO: Return another error.
+          result(.error(RequestError.unspecified))
         }
         return
       }

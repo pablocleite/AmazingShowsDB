@@ -18,24 +18,17 @@ class ShowCollectionPresenter: ShowCollectionPresenterProtocol, ShowCollectionIn
 
   var view: ShowCollectionViewProtocol!
   
-  //TODO: Add dependecy injection here!
-  var interactor: ShowCollectionInteractorProtocol! = ShowCollectionInteractor() {
+  var interactor: ShowCollectionInteractorProtocol! {
     didSet {
       interactor.delegate = self
     }
   }
-  
-  //TODO: Remove this init!
-  init() {
-    interactor.delegate = self
-  }
-  
+
   func updateView() {
       interactor.loadShows()
   }
   
   func didFinishLoadingShows(shows: [ShowViewModel]) {
-    //TODO: Presenter shoud receive entity and convert into the view model ?
     view?.shows = shows
   }
 

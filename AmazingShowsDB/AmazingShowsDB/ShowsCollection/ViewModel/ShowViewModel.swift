@@ -13,8 +13,7 @@ struct ShowViewModel {
     let title: String
     let posterUrl: URL?
     
-  init(show: Show, withPosterUrl posterUrl: URL?) {
-        //TODO: Find a way to extract the posterUrl!
+  init(show: Show, withPosterUrl posterUrl: URL? = nil) {
         title = show.title ?? ""
         self.posterUrl =  posterUrl
     }

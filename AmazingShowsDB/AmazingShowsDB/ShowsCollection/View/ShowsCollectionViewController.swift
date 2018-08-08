@@ -10,12 +10,12 @@ import UIKit
 import Kingfisher
 
 protocol ShowCollectionViewProtocol {
-  var presenter: ShowCollectionPresenterProtocol! { get set }
-  var shows: [ShowViewModel]? {get set}
+    var presenter: ShowCollectionPresenterProtocol! { get set }
+    var shows: [ShowViewModel]? {get set}
 }
 
 class ShowsCollectionViewController: UIViewController, ShowCollectionViewProtocol {
-
+    
     @IBOutlet weak var showsCollectionView: UICollectionView! {
         didSet {
             showsCollectionView.delegate = self
@@ -23,34 +23,27 @@ class ShowsCollectionViewController: UIViewController, ShowCollectionViewProtoco
         }
     }
     
-
-  //TODO: use dependency injection here!
-  var presenter: ShowCollectionPresenterProtocol! = ShowCollectionPresenter() {
-    didSet {
-      presenter.view = self
+    var presenter: ShowCollectionPresenterProtocol! {
+        didSet {
+            presenter.view = self
+        }
     }
-  }
-  
-  var shows: [ShowViewModel]? {
+    
+    var shows: [ShowViewModel]? {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.showsCollectionView.reloadData()
             }
         }
     }
-  
-  //TODO: Remove method below after DI
-  override func viewDidLoad() {
-    presenter.view = self
-  }
     
     override func viewWillAppear(_ animated: Bool) {
-      presenter.updateView()
+        presenter.updateView()
     }
 }
 
 extension ShowsCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-  
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return shows?.count ?? 0
     }
@@ -60,8 +53,7 @@ extension ShowsCollectionViewController: UICollectionViewDelegate, UICollectionV
         if let showCollectionViewCell = cell as? ShowCollectionViewCell,
             let show = shows?[indexPath.row] {
             showCollectionViewCell.titleLabel.text = show.title
-          //TODO: Set a placeholder image
-            showCollectionViewCell.posterImageView.kf.setImage(with: show.posterUrl)
+            showCollectionViewCell.posterImageView.kf.setImage(with: show.posterUrl, placeholder: #imageLiteral(resourceName: "posterPlaceholder"))
         }
         return cell
     }

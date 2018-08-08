@@ -16,6 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+      
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        //TODO: Move this to a router?
+        let mainViewController = storyBoard.instantiateViewController(withIdentifier: "ShowCollectionViewController")
+        var showCollectionViewController = mainViewController as! ShowCollectionViewProtocol
+        let presenter = ShowCollectionPresenter()
+        let interactor = ShowCollectionInteractor()
+        presenter.interactor = interactor
+        showCollectionViewController.presenter = presenter
+        
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
+
         return true
     }
 
