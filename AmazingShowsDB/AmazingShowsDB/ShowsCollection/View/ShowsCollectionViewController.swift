@@ -25,39 +25,31 @@ class ShowsCollectionViewController: UIViewController {
             }
         }
     }
-    
+  
+  var interactor: ShowsCollectionInteractor! {
+    didSet {
+      interactor.delegate = self
+    }
+  }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor = ShowsCollectionInteractor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //TODO: Move this OUT of the view controller, use a nice protocol to talk to a presenter or something better.
-        let showsDataManager = ShowDataManager()
-        showsDataManager.fetchShows { (result) in
-            switch (result) {
-            case .success(let shows):
-                self.shows = shows.map({ ShowViewModel(show: $0) })
-                
-                //TODO: Organize this!
-                //Let's load the poster urls from tmdb.
-                let tmdbPosterDataManager = TMDBPosterDataManager()
-                shows.forEach({ (show) in
-                    tmdbPosterDataManager.fetchPosterUrl(tmdbId: show.serviceIds?.tmdb ?? -1)
-                })
-//                let tmdbIds = shows.map({ $0.serviceIds?.tmdb })
-//                tmdbPosterDataManager.fetchPosterUrl(tmdbIds: tmdbIds)
-                
-            case .error(let error):
-                print(error.localizedDescription)
-            }
-        }
+      interactor.loadShows()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  
+
+}
+
+extension ShowsCollectionViewController: ShowsCollectionInteractorDelegate {
+  func didFinishLoadingShows(shows: [ShowViewModel]) {
+    self.shows = shows
+  }
 }
 
 

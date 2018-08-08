@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78B246B2211B3AF300AABCE4 /* BaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B246B1211B3AF300AABCE4 /* BaseDataManager.swift */; };
+		78B246B5211B575800AABCE4 /* ShowsCollectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B246B4211B575800AABCE4 /* ShowsCollectionInteractor.swift */; };
 		AA3FF131211A4BAA00F44EDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF130211A4BAA00F44EDE /* AppDelegate.swift */; };
 		AA3FF133211A4BAA00F44EDE /* ShowsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF132211A4BAA00F44EDE /* ShowsCollectionViewController.swift */; };
 		AA3FF136211A4BAA00F44EDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3FF134211A4BAA00F44EDE /* Main.storyboard */; };
@@ -17,10 +19,12 @@
 		AA3FF14B211A584300F44EDE /* ShowDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF14A211A584300F44EDE /* ShowDataManager.swift */; };
 		AA3FF14E211A782600F44EDE /* ShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF14D211A782600F44EDE /* ShowViewModel.swift */; };
 		AA3FF150211A860C00F44EDE /* TMDBPosterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF14F211A860C00F44EDE /* TMDBPosterDataManager.swift */; };
-		AA3FF156211A90AE00F44EDE /* TMDBImagesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF155211A90AE00F44EDE /* TMDBImagesEntity.swift */; };
+		AA3FF156211A90AE00F44EDE /* TMDBPosterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF155211A90AE00F44EDE /* TMDBPosterEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78B246B1211B3AF300AABCE4 /* BaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataManager.swift; sourceTree = "<group>"; };
+		78B246B4211B575800AABCE4 /* ShowsCollectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsCollectionInteractor.swift; sourceTree = "<group>"; };
 		AA3FF12D211A4BAA00F44EDE /* AmazingShowsDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingShowsDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3FF130211A4BAA00F44EDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA3FF132211A4BAA00F44EDE /* ShowsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +37,7 @@
 		AA3FF14A211A584300F44EDE /* ShowDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDataManager.swift; sourceTree = "<group>"; };
 		AA3FF14D211A782600F44EDE /* ShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewModel.swift; sourceTree = "<group>"; };
 		AA3FF14F211A860C00F44EDE /* TMDBPosterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBPosterDataManager.swift; sourceTree = "<group>"; };
-		AA3FF155211A90AE00F44EDE /* TMDBImagesEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBImagesEntity.swift; sourceTree = "<group>"; };
+		AA3FF155211A90AE00F44EDE /* TMDBPosterEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBPosterEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78B246B0211B3AD200AABCE4 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				78B246B1211B3AF300AABCE4 /* BaseDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		78B246B3211B574000AABCE4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				78B246B4211B575800AABCE4 /* ShowsCollectionInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		AA3FF124211A4BAA00F44EDE = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +86,7 @@
 		AA3FF12F211A4BAA00F44EDE /* AmazingShowsDB */ = {
 			isa = PBXGroup;
 			children = (
+				78B246B0211B3AD200AABCE4 /* DataManager */,
 				AA3FF151211A8F7500F44EDE /* TMDB */,
 				AA3FF142211A532B00F44EDE /* ShowsCollection */,
 				AA3FF130211A4BAA00F44EDE /* AppDelegate.swift */,
@@ -80,6 +101,7 @@
 		AA3FF142211A532B00F44EDE /* ShowsCollection */ = {
 			isa = PBXGroup;
 			children = (
+				78B246B3211B574000AABCE4 /* Interactor */,
 				AA3FF14C211A77D400F44EDE /* ViewModel */,
 				AA3FF149211A582500F44EDE /* DataManager */,
 				AA3FF146211A563800F44EDE /* Entities */,
@@ -133,7 +155,7 @@
 		AA3FF152211A8FA600F44EDE /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				AA3FF155211A90AE00F44EDE /* TMDBImagesEntity.swift */,
+				AA3FF155211A90AE00F44EDE /* TMDBPosterEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -217,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78B246B2211B3AF300AABCE4 /* BaseDataManager.swift in Sources */,
 				AA3FF133211A4BAA00F44EDE /* ShowsCollectionViewController.swift in Sources */,
 				AA3FF14E211A782600F44EDE /* ShowViewModel.swift in Sources */,
 				AA3FF145211A55D500F44EDE /* ShowCollectionViewCell.swift in Sources */,
@@ -224,7 +247,8 @@
 				AA3FF131211A4BAA00F44EDE /* AppDelegate.swift in Sources */,
 				AA3FF150211A860C00F44EDE /* TMDBPosterDataManager.swift in Sources */,
 				AA3FF14B211A584300F44EDE /* ShowDataManager.swift in Sources */,
-				AA3FF156211A90AE00F44EDE /* TMDBImagesEntity.swift in Sources */,
+				AA3FF156211A90AE00F44EDE /* TMDBPosterEntity.swift in Sources */,
+				78B246B5211B575800AABCE4 /* ShowsCollectionInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

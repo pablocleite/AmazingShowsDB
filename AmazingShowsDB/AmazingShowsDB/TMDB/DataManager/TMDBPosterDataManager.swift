@@ -8,62 +8,56 @@
 
 import Foundation
 
-struct TMDBPosterDataManager {
-    let tmdbApiKey = "c637fc098e8e7406ab5721e72585640e"
-    let tmdbBaseUrl = URL(string: "https://api.themoviedb.org/3/")
-    
-    //TODO: Put this on an UIImage extension and do it!
-    let tmdbImagesEndPoint = "https://image.tmdb.org/t/p/w342"
-    
-    let configurationEndPoint = "configuration"
-    
-    var apiKeyParam: String {
-        return "?api_key=\(tmdbApiKey)"
-    }
+
+final class TMDBPosterDataManager: BaseDataManager<TMDBPosterEntity> {
+  private struct TMDBImagesEntity: Decodable {
+    let posters: [TMDBPosterEntity]
+  }
+    static let tmdbApiKey = "c637fc098e8e7406ab5721e72585640e"
+    static let tmdbBaseUrl = URL(string: "https://api.themoviedb.org/3/")
 
     
-    func buildImageUrl(showId: Int) -> URL? {
+    var apiKeyParam: String {
+        return "?api_key=\(TMDBPosterDataManager.tmdbApiKey)"
+    }
+  
+  private let showId: Int
+  
+  init(showId: Int) {
+    self.showId = showId
+  }
+
+    
+    func buildImageUrl() -> URL? {
         let endpoint = "tv" + "/\(showId)" + "/images" + apiKeyParam
-        return URL(string: endpoint, relativeTo: tmdbBaseUrl)
+        return URL(string: endpoint, relativeTo: TMDBPosterDataManager.tmdbBaseUrl)
     }
-    
-    private func fetchApiConfiguration() {
-        guard let configurationUrl = URL(string: configurationEndPoint + apiKeyParam, relativeTo: tmdbBaseUrl) else {
-            //TODO: Add some error handling here!
-            return
-        }
-        
-        URLSession.shared.dataTask(with: configurationUrl) { (data, response, error) in
-            //TODO: retrieve the configuration here and cache it somewhere.
-        }
+  
+  override func performFetch(result: @escaping (Result<TMDBPosterEntity>) -> Void) {
+    guard let url = buildImageUrl() else {
+        //TODO: Add error handling!
+        return
     }
-    
-    func fetchPosterUrl(tmdbId: Int) {
-        
-        guard let showImagesUrl = buildImageUrl(showId: tmdbId),
-            tmdbId != -1 else {
-                //TODO: Add error handling!
-                return
+
+    fetchDataFromUrl(url) { (dataResult) in
+      switch dataResult {
+      case .success(let data):
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        do {
+          let images = try decoder.decode(TMDBImagesEntity.self, from: data)
+          if let poster = images.posters.first {
+            result(.success(poster))
+          } else {
+            //TODO: Call completion block with nil?
+          }
+        } catch {
+          result(.error(error))
         }
-        
-        URLSession.shared.dataTask(with: showImagesUrl) { (data, response, error) in
-            guard let data = data else {
-                //TODO: get error and call a completion handler!
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            do {
-                let images = try decoder.decode(TMDBImagesEntity.self, from: data)
-                //TODO Call the completionBlock!
-                let poster = images.posters.first
-            } catch {
-                //TODO: Call the completion block here!
-                print(error)
-            }
-        }.resume()
+      case .error(let error):
+        result(.error(error))
+      }
     }
-    
-    
+  }
+  
 }
