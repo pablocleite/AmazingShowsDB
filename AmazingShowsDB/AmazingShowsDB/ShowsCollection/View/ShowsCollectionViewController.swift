@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 //TODO: Define a protocol for the VC and expose the shows var
 class ShowsCollectionViewController: UIViewController {
@@ -54,6 +55,7 @@ extension ShowsCollectionViewController: ShowsCollectionInteractorDelegate {
 
 
 extension ShowsCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return shows?.count ?? 0
     }
@@ -63,6 +65,8 @@ extension ShowsCollectionViewController: UICollectionViewDelegate, UICollectionV
         if let showCollectionViewCell = cell as? ShowCollectionViewCell,
             let show = shows?[indexPath.row] {
             showCollectionViewCell.titleLabel.text = show.title
+            showCollectionViewCell.posterImageView.kf.indicatorType = .activity
+            showCollectionViewCell.posterImageView.kf.setImage(with: show.posterUrl)
         }
         return cell
     }

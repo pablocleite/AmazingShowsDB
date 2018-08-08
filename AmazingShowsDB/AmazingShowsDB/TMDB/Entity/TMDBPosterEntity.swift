@@ -14,6 +14,6 @@ struct TMDBPosterEntity: Decodable {
   let filePath: String
   
   var posterUrl: URL? {
-    return URL(string: filePath, relativeTo: TMDBPosterEntity.tmdbImagesEndPoint)
+    return TMDBPosterEntity.tmdbImagesEndPoint?.appendingPathComponent(filePath)
   }
 }

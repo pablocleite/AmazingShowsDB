@@ -10,7 +10,7 @@ import Foundation
 
 final class ShowDataManager: BaseDataManager<[Show]> {
     
-    let trendingTracktShowsURL = URL(string: "https://api.trakt.tv/shows/trending")
+    static let trendingTracktShowsURL = URL(string: "https://api.trakt.tv/shows/trending")
     
     
     //APP Client ID
@@ -28,7 +28,7 @@ final class ShowDataManager: BaseDataManager<[Show]> {
   }
   
   override func performFetch(result: @escaping (Result<[Show]>) -> Void) {
-    guard let url = trendingTracktShowsURL else {
+    guard let url = ShowDataManager.trendingTracktShowsURL else {
       print("serviceURL cannot be nil!")
       return
     }
