@@ -82,7 +82,7 @@ class ShowsCollectionViewController: UIViewController, ShowCollectionViewProtoco
     @objc func refresh() {
         presenter.updateView()
     }
-
+    
 }
 
 extension ShowsCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {

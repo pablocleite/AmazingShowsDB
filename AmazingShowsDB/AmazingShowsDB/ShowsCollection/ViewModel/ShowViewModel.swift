@@ -13,7 +13,7 @@ struct ShowViewModel {
     let title: String
     let posterUrl: URL?
     
-  init(show: Show, withPosterUrl posterUrl: URL? = nil) {
+    init(show: Show, withPosterUrl posterUrl: URL? = nil) {
         title = show.title ?? ""
         self.posterUrl =  posterUrl
     }

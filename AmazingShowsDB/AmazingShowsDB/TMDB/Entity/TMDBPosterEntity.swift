@@ -9,11 +9,11 @@
 import Foundation
 
 struct TMDBPosterEntity: Decodable {
-  static let tmdbImagesEndPoint = URL(string: "https://image.tmdb.org/t/p/w342")
-  
-  let filePath: String
-  
-  var posterUrl: URL? {
-    return TMDBPosterEntity.tmdbImagesEndPoint?.appendingPathComponent(filePath)
-  }
+    static let tmdbImagesEndPoint = URL(string: "https://image.tmdb.org/t/p/w342")
+    
+    let filePath: String
+    
+    var posterUrl: URL? {
+        return TMDBPosterEntity.tmdbImagesEndPoint?.appendingPathComponent(filePath)
+    }
 }

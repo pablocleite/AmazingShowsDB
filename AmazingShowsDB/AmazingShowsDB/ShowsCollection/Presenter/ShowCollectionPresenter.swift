@@ -9,31 +9,31 @@
 import Foundation
 
 protocol ShowCollectionPresenterProtocol: AnyObject {
-  var view: ShowCollectionViewProtocol! { get set }
-  var interactor: ShowCollectionInteractorProtocol! { get set }
-  func updateView()
+    var view: ShowCollectionViewProtocol! { get set }
+    var interactor: ShowCollectionInteractorProtocol! { get set }
+    func updateView()
 }
 
 class ShowCollectionPresenter: ShowCollectionPresenterProtocol, ShowCollectionInteractorDelegate {
-
-  var view: ShowCollectionViewProtocol!
-  
-  var interactor: ShowCollectionInteractorProtocol! {
-    didSet {
-      interactor.delegate = self
+    
+    var view: ShowCollectionViewProtocol!
+    
+    var interactor: ShowCollectionInteractorProtocol! {
+        didSet {
+            interactor.delegate = self
+        }
     }
-  }
-
-  func updateView() {
-      interactor.loadShows()
-  }
-  
-  func didFinishLoadingShows(shows: [ShowViewModel]) {
-    view?.shows = shows
-  }
-
-  func loadingShowsFailed(_ error: Error) {
-    view?.displayError()
-  }
-
+    
+    func updateView() {
+        interactor.loadShows()
+    }
+    
+    func didFinishLoadingShows(shows: [ShowViewModel]) {
+        view?.shows = shows
+    }
+    
+    func loadingShowsFailed(_ error: Error) {
+        view?.displayError()
+    }
+    
 }

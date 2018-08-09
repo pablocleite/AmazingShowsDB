@@ -9,8 +9,8 @@
 import Foundation
 
 enum Result<T> {
-  case success(T)
-  case error(Error)
+    case success(T)
+    case error(Error)
 }
 
 enum RequestError: Error {
@@ -18,36 +18,36 @@ enum RequestError: Error {
 }
 
 class BaseDataManager<T> {
-  
-  var sessionConfiguration: URLSessionConfiguration?
-  
-  func performFetch(result: @escaping (Result<T>) -> Void) {
-    //Default implementation does nothing. This method is meant to be overriden by subclasses
-  }
-  
-  func fetchDataFromUrl(_ url: URL, withResult result: @escaping (Result<Data>) -> Void) {
     
-    let urlSession: URLSession
-    if let sessionConfiguration = sessionConfiguration {
-      urlSession = URLSession(configuration: sessionConfiguration)
-    } else {
-      urlSession = URLSession.shared
+    var sessionConfiguration: URLSessionConfiguration?
+    
+    func performFetch(result: @escaping (Result<T>) -> Void) {
+        //Default implementation does nothing. This method is meant to be overriden by subclasses
     }
     
-    urlSession.dataTask(with: url) { (data, response, error) in
-      guard let data = data else {
-        if let error = error {
+    func fetchDataFromUrl(_ url: URL, withResult result: @escaping (Result<Data>) -> Void) {
         
-          result(.error(error))
+        let urlSession: URLSession
+        if let sessionConfiguration = sessionConfiguration {
+            urlSession = URLSession(configuration: sessionConfiguration)
         } else {
-          result(.error(RequestError.unspecified))
+            urlSession = URLSession.shared
         }
-        return
-      }
-      
-      result(.success(data))
-      
-      }.resume()
-  }
-  
+        
+        urlSession.dataTask(with: url) { (data, response, error) in
+            guard let data = data else {
+                if let error = error {
+                    
+                    result(.error(error))
+                } else {
+                    result(.error(RequestError.unspecified))
+                }
+                return
+            }
+            
+            result(.success(data))
+            
+            }.resume()
+    }
+    
 }

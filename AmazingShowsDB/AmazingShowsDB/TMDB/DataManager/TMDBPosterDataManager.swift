@@ -45,7 +45,7 @@ final class TMDBPosterDataManager: BaseDataManager<[Int:TMDBPosterEntity]> {
             guard let url = buildImageUrl(showId: showId) else {
                 break
             }
-
+            
             let urlRequest = URLRequest(url: url)
             let config = URLSessionConfiguration.default
             let session = URLSession(configuration: config)

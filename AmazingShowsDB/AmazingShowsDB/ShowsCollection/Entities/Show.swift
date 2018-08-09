@@ -8,22 +8,6 @@
 
 import Foundation
 
-//
-
-/*
- {
- "title": "Game of Thrones",
- "year": 2011,
- "ids": {
- "trakt": 1390,
- "slug": "game-of-thrones",
- "tvdb": 121361,
- "imdb": "tt0944947",
- "tmdb": 1399,
- "tvrage": 24493
- }
- },
- */
 struct Show: Decodable {
     
     struct ServiceIds: Decodable {
@@ -65,5 +49,5 @@ struct Show: Decodable {
         year = try showContainer.decodeIfPresent(Int.self, forKey: .year)
         serviceIds = try showContainer.decodeIfPresent(ServiceIds.self, forKey: .serviceIds)
     }
-
+    
 }
