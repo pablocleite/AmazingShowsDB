@@ -12,18 +12,23 @@ import Kingfisher
 protocol ShowCollectionViewProtocol {
     var presenter: ShowCollectionPresenterProtocol! { get set }
     var shows: [ShowViewModel]? {get set}
+    
+    func displayError()
 }
 
 class ShowsCollectionViewController: UIViewController, ShowCollectionViewProtocol {
     
     static let identifier = "ShowCollectionViewController"
     
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var showsCollectionView: UICollectionView! {
         didSet {
             showsCollectionView.delegate = self
             showsCollectionView.dataSource = self
         }
     }
+    
+    let refreshControl = UIRefreshControl()
     
     var presenter: ShowCollectionPresenterProtocol! {
         didSet {
@@ -34,6 +39,8 @@ class ShowsCollectionViewController: UIViewController, ShowCollectionViewProtoco
     var shows: [ShowViewModel]? {
         didSet {
             DispatchQueue.main.async { [weak self] in
+                self?.hideError()
+                self?.refreshControl.endRefreshing()
                 self?.showsCollectionView.reloadData()
             }
         }
@@ -42,10 +49,37 @@ class ShowsCollectionViewController: UIViewController, ShowCollectionViewProtoco
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barStyle = .blackTranslucent
+        setupPullToRefresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter.updateView()
+    }
+    
+    func displayError() {
+        DispatchQueue.main.async { [weak self] in
+            self?.errorLabel.isHidden = false
+            self?.refreshControl.endRefreshing()
+        }
+    }
+    
+    func hideError() {
+        DispatchQueue.main.async { [weak self] in
+            self?.errorLabel.isHidden = true
+        }
+    }
+    
+    func setupPullToRefresh() {
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            showsCollectionView.refreshControl = refreshControl
+        } else {
+            showsCollectionView.addSubview(refreshControl)
+        }
+    }
+    
+    @objc func refresh() {
         presenter.updateView()
     }
 

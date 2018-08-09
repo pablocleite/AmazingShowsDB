@@ -20,6 +20,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qya-JF-Pf5">
+                                <rect key="frame" x="29" y="375" width="318" height="63"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Unable to fetch movies.
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="30"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Try again later">
+                                        <attributes>
+                                            <color key="NSColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="24" name=".SFNSDisplay"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RQk-xK-n7O" userLabel="ShowsCollectionView">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -72,12 +94,15 @@
                         <constraints>
                             <constraint firstItem="RQk-xK-n7O" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="BVO-yP-S9Q"/>
                             <constraint firstItem="RQk-xK-n7O" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PGK-t7-Shc"/>
+                            <constraint firstItem="qya-JF-Pf5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="azJ-zp-zaB"/>
                             <constraint firstItem="RQk-xK-n7O" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iOg-JJ-jw7"/>
                             <constraint firstItem="RQk-xK-n7O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jMg-sg-Xuh"/>
+                            <constraint firstItem="qya-JF-Pf5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="odI-4J-dVX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="qya-JF-Pf5" id="vqq-gX-H3j"/>
                         <outlet property="showsCollectionView" destination="RQk-xK-n7O" id="uc6-zp-ckz"/>
                     </connections>
                 </viewController>

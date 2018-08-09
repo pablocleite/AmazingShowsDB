@@ -33,7 +33,7 @@ class ShowCollectionPresenter: ShowCollectionPresenterProtocol, ShowCollectionIn
   }
 
   func loadingShowsFailed(_ error: Error) {
-    //TODO: Display some kind of error
+    view?.displayError()
   }
 
 }

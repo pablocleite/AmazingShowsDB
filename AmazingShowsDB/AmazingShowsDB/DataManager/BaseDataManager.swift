@@ -37,6 +37,7 @@ class BaseDataManager<T> {
     urlSession.dataTask(with: url) { (data, response, error) in
       guard let data = data else {
         if let error = error {
+        
           result(.error(error))
         } else {
           result(.error(RequestError.unspecified))
