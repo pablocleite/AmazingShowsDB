@@ -12,12 +12,12 @@ import XCTest
 class ShowCollectionRouterTests: XCTestCase {
     
     func testPresentShowCollectionViewController() {
-        let vc = ShowsCollectionRouter.presentShowsCollection()
+        let vc = ShowCollectionRouter.presentShowsCollection()
         XCTAssert(vc is UINavigationController)
         let navigationVc = vc as! UINavigationController
         XCTAssert(!navigationVc.viewControllers.isEmpty)
         let rootVc = navigationVc.viewControllers.first
-        XCTAssert(rootVc is ShowsCollectionViewController)
+        XCTAssert(rootVc is ShowCollectionViewController)
         
     }
 }

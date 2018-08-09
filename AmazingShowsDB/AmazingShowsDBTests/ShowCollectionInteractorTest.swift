@@ -50,7 +50,7 @@ class ShowCollectionInteractorTest: XCTestCase {
     }
     
     func testInit() {
-        XCTAssert(interactor != nil)
+        XCTAssert(interactor != nil && interactor.delegate != nil)
     }
     
     func testInterator() {

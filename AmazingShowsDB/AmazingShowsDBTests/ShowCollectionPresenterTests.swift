@@ -10,24 +10,38 @@ import XCTest
 @testable import AmazingShowsDB
 
 class ShowCollectionPresenterTests: XCTestCase {
+  enum MockError: Error {
+    case mock
+  }
     
-    class MockShowCollectionView: ShowCollectionViewProtocol {
+  class MockShowCollectionView: ShowCollectionViewProtocol {
+    
         var didSetShows = false
+        var didShowError = false
         var presenter: ShowCollectionPresenterProtocol!
         var shows: [ShowViewModel]? {
             didSet {
                 didSetShows = true
             }
         }
+    
+        func displayError() {
+            didShowError = true
+        }
     }
     
     class MockShowCollectionInteractor: ShowCollectionInteractorProtocol {
         var delegate: ShowCollectionInteractorDelegate?
-        
+      
+        var simulateError = false
         var didCallLoadShows = false
         func loadShows() {
             didCallLoadShows = true
-            delegate?.didFinishLoadingShows(shows: [])
+            if (!simulateError) {
+                delegate?.didFinishLoadingShows(shows: [])
+            } else {
+                delegate?.loadingShowsFailed(MockError.mock)
+            }
         }
     }
     
@@ -55,6 +69,15 @@ class ShowCollectionPresenterTests: XCTestCase {
         
         XCTAssert(interactor.didCallLoadShows)
         XCTAssert(view.didSetShows)
+    }
+  
+    func testViewWithError() {
+        interactor.simulateError = true
+        presenter.updateView()
+      
+        XCTAssert(interactor.didCallLoadShows)
+        XCTAssert(!view.didSetShows)
+        XCTAssert(view.didShowError)
     }
 
 }

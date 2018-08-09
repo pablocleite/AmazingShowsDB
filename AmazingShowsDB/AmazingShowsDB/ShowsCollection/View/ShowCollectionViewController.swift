@@ -1,5 +1,5 @@
 //
-//  ShowsCollectionViewController.swift
+//  ShowCollectionViewController.swift
 //  AmazingShowsDB
 //
 //  Created by Pablo Leite on 07/08/2018.
@@ -16,7 +16,7 @@ protocol ShowCollectionViewProtocol {
     func displayError()
 }
 
-class ShowsCollectionViewController: UIViewController, ShowCollectionViewProtocol {
+class ShowCollectionViewController: UIViewController, ShowCollectionViewProtocol {
     
     static let identifier = "ShowCollectionViewController"
     
@@ -85,7 +85,7 @@ class ShowsCollectionViewController: UIViewController, ShowCollectionViewProtoco
     
 }
 
-extension ShowsCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ShowCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return shows?.count ?? 0

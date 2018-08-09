@@ -1,5 +1,5 @@
 //
-//  ShowsCollectionRouter.swift
+//  ShowCollectionRouter.swift
 //  AmazingShowsDB
 //
 //  Created by Pablo Leite on 08/08/2018.
@@ -12,13 +12,13 @@ protocol ShowCollectionRouterProtocol {
     //Empty as there's no navigation in this app yet
 }
 
-class ShowsCollectionRouter: ShowCollectionRouterProtocol {
+class ShowCollectionRouter: ShowCollectionRouterProtocol {
     
     var navigationViewController: UINavigationController?
     
     static func presentShowsCollection() -> UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let mainViewController = storyBoard.instantiateViewController(withIdentifier: ShowsCollectionViewController.identifier)
+        let mainViewController = storyBoard.instantiateViewController(withIdentifier: ShowCollectionViewController.identifier)
         var showCollectionViewController = mainViewController as! ShowCollectionViewProtocol
         let presenter = ShowCollectionPresenter()
         let interactor = ShowCollectionInteractor()
