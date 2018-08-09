@@ -21,7 +21,7 @@
 		AA3FF13B211A4BAB00F44EDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3FF139211A4BAB00F44EDE /* LaunchScreen.storyboard */; };
 		AA3FF145211A55D500F44EDE /* ShowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF144211A55D500F44EDE /* ShowCollectionViewCell.swift */; };
 		AA3FF148211A564B00F44EDE /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF147211A564B00F44EDE /* Show.swift */; };
-		AA3FF14B211A584300F44EDE /* ShowDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF14A211A584300F44EDE /* ShowDataManager.swift */; };
+		AA3FF14B211A584300F44EDE /* TraktShowDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF14A211A584300F44EDE /* TraktShowDataManager.swift */; };
 		AA3FF14E211A782600F44EDE /* ShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF14D211A782600F44EDE /* ShowViewModel.swift */; };
 		AA3FF150211A860C00F44EDE /* TMDBPosterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF14F211A860C00F44EDE /* TMDBPosterDataManager.swift */; };
 		AA3FF156211A90AE00F44EDE /* TMDBPosterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF155211A90AE00F44EDE /* TMDBPosterEntity.swift */; };
@@ -60,7 +60,7 @@
 		AA3FF13C211A4BAB00F44EDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA3FF144211A55D500F44EDE /* ShowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA3FF147211A564B00F44EDE /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
-		AA3FF14A211A584300F44EDE /* ShowDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDataManager.swift; sourceTree = "<group>"; };
+		AA3FF14A211A584300F44EDE /* TraktShowDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraktShowDataManager.swift; sourceTree = "<group>"; };
 		AA3FF14D211A782600F44EDE /* ShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewModel.swift; sourceTree = "<group>"; };
 		AA3FF14F211A860C00F44EDE /* TMDBPosterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBPosterDataManager.swift; sourceTree = "<group>"; };
 		AA3FF155211A90AE00F44EDE /* TMDBPosterEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBPosterEntity.swift; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 		AA3FF149211A582500F44EDE /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				AA3FF14A211A584300F44EDE /* ShowDataManager.swift */,
+				AA3FF14A211A584300F44EDE /* TraktShowDataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -411,7 +411,7 @@
 				AA3FF148211A564B00F44EDE /* Show.swift in Sources */,
 				AA3FF131211A4BAA00F44EDE /* AppDelegate.swift in Sources */,
 				AA3FF150211A860C00F44EDE /* TMDBPosterDataManager.swift in Sources */,
-				AA3FF14B211A584300F44EDE /* ShowDataManager.swift in Sources */,
+				AA3FF14B211A584300F44EDE /* TraktShowDataManager.swift in Sources */,
 				AA3FF156211A90AE00F44EDE /* TMDBPosterEntity.swift in Sources */,
 				787C4AD7211B740200ADAEEE /* ShowCollectionPresenter.swift in Sources */,
 				78B246B5211B575800AABCE4 /* ShowCollectionInteractor.swift in Sources */,

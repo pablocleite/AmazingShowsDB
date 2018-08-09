@@ -42,7 +42,7 @@ class ShowCollectionInteractor: ShowCollectionInteractorProtocol {
     }
     
     func loadShows() {
-        let showsDataManager = ShowDataManager()
+        let showsDataManager = TraktShowDataManager()
         showsDataManager.performFetch() { [weak self] (result) in
             switch (result) {
             case .success(let shows):

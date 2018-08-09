@@ -1,5 +1,5 @@
 //
-//  ShowDataManager.swift
+//  TraktShowDataManager.swift
 //  AmazingShowsDB
 //
 //  Created by Pablo Leite on 07/08/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class ShowDataManager: BaseDataManager<[Show]> {
+final class TraktShowDataManager: BaseDataManager<[Show]> {
     
     static let trendingTracktShowsURL = URL(string: "https://api.trakt.tv/shows/trending")
     
@@ -28,7 +28,7 @@ final class ShowDataManager: BaseDataManager<[Show]> {
   }
   
   override func performFetch(result: @escaping (Result<[Show]>) -> Void) {
-    guard let url = ShowDataManager.trendingTracktShowsURL else {
+    guard let url = TraktShowDataManager.trendingTracktShowsURL else {
       print("serviceURL cannot be nil!")
       return
     }
