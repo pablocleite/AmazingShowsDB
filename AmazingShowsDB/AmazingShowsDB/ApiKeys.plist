@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>trakt</key>
+	<string>Insert_trakt_apikey</string>
+	<key>tmdb</key>
+	<string>Insert_tmdb_apikey</string>
+</dict>
+</plist>

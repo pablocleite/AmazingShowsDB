@@ -13,12 +13,11 @@ final class TMDBPosterDataManager: BaseDataManager<[Int:TMDBPosterEntity]> {
     private struct TMDBImagesEntity: Decodable {
         let posters: [TMDBPosterEntity]
     }
-    static let tmdbApiKey = "c637fc098e8e7406ab5721e72585640e"
     static let tmdbBaseUrl = URL(string: "https://api.themoviedb.org/3/")
     
     
     var apiKeyParam: String {
-        return "?api_key=\(TMDBPosterDataManager.tmdbApiKey)"
+        return "?api_key=\(apiKeyFor(service: .tmdb))"
     }
     
     private let showIds: Set<Int>

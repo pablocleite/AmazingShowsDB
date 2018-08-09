@@ -11,9 +11,7 @@ import Foundation
 final class TraktShowDataManager: BaseDataManager<[Show]> {
     
     static let trendingTracktShowsURL = URL(string: "https://api.trakt.tv/shows/trending")
-
-    //APP Client ID
-    let tracktAPIKey = "c3334a9c126666d7139b1e264c5aabfb58dd31a381569d4fd865d11810a165f6"
+    
     let apiVersion = "2"
     
     override init() {
@@ -21,7 +19,7 @@ final class TraktShowDataManager: BaseDataManager<[Show]> {
         sessionConfiguration = URLSessionConfiguration.default
         sessionConfiguration?.httpAdditionalHeaders = [
             "Content-type" : "application/json",
-            "trakt-api-key" : tracktAPIKey,
+            "trakt-api-key" : apiKeyFor(service: .trakt),
             "trakt-api-version" : apiVersion
         ]
     }

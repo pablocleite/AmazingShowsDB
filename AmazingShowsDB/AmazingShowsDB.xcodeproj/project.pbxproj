@@ -25,6 +25,7 @@
 		AA3FF14E211A782600F44EDE /* ShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF14D211A782600F44EDE /* ShowViewModel.swift */; };
 		AA3FF150211A860C00F44EDE /* TMDBPosterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF14F211A860C00F44EDE /* TMDBPosterDataManager.swift */; };
 		AA3FF156211A90AE00F44EDE /* TMDBPosterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF155211A90AE00F44EDE /* TMDBPosterEntity.swift */; };
+		AAFF4006211BE67500B513EC /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAFF4005211BE67500B513EC /* ApiKeys.plist */; };
 		B4A240215EAD90B4A1E67FA8 /* Pods_AmazingShowsDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FB186C3039EE06119FC691 /* Pods_AmazingShowsDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		AA3FF14D211A782600F44EDE /* ShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewModel.swift; sourceTree = "<group>"; };
 		AA3FF14F211A860C00F44EDE /* TMDBPosterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBPosterDataManager.swift; sourceTree = "<group>"; };
 		AA3FF155211A90AE00F44EDE /* TMDBPosterEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBPosterEntity.swift; sourceTree = "<group>"; };
+		AAFF4005211BE67500B513EC /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 				AA3FF137211A4BAB00F44EDE /* Assets.xcassets */,
 				AA3FF139211A4BAB00F44EDE /* LaunchScreen.storyboard */,
 				AA3FF13C211A4BAB00F44EDE /* Info.plist */,
+				AAFF4005211BE67500B513EC /* ApiKeys.plist */,
 			);
 			path = AmazingShowsDB;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA3FF13B211A4BAB00F44EDE /* LaunchScreen.storyboard in Resources */,
+				AAFF4006211BE67500B513EC /* ApiKeys.plist in Resources */,
 				AA3FF138211A4BAB00F44EDE /* Assets.xcassets in Resources */,
 				AA3FF136211A4BAA00F44EDE /* Main.storyboard in Resources */,
 			);

@@ -17,6 +17,11 @@ enum RequestError: Error {
     case unspecified
 }
 
+enum Service: String {
+    case trakt = "trakt"
+    case tmdb = "tmdb"
+}
+
 class BaseDataManager<T> {
     
     var sessionConfiguration: URLSessionConfiguration?
@@ -49,5 +54,15 @@ class BaseDataManager<T> {
             
             }.resume()
     }
-    
+}
+
+extension BaseDataManager {
+    func apiKeyFor(service: Service) -> String {
+        if let filePath = Bundle.main.path(forResource: "ApiKeys", ofType: "plist"),
+            let plist = NSDictionary(contentsOfFile: filePath) as? [String : AnyObject] {
+            return plist[service.rawValue] as! String
+        } else {
+            return ""
+        }
+    }
 }
