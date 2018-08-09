@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol ShowsCollectionRouterProtocol {
+protocol ShowCollectionRouterProtocol {
     //Empty as there's no navigation in this app yet
 }
 
-class ShowsCollectionRouter: ShowsCollectionRouterProtocol {
+class ShowsCollectionRouter: ShowCollectionRouterProtocol {
     
     var navigationViewController: UINavigationController?
     

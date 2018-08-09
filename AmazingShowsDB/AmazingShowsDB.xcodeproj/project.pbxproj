@@ -11,6 +11,9 @@
 		78B246B2211B3AF300AABCE4 /* BaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B246B1211B3AF300AABCE4 /* BaseDataManager.swift */; };
 		78B246B5211B575800AABCE4 /* ShowCollectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B246B4211B575800AABCE4 /* ShowCollectionInteractor.swift */; };
 		AA0E8E0C211BAFC70072B67E /* ShowsCollectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E8E0B211BAFC70072B67E /* ShowsCollectionRouter.swift */; };
+		AA0E8E14211BB8E60072B67E /* ShowCollectionRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E8E13211BB8E60072B67E /* ShowCollectionRouterTests.swift */; };
+		AA0E8E1C211BBB430072B67E /* ShowCollectionPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E8E1B211BBB430072B67E /* ShowCollectionPresenterTests.swift */; };
+		AA0E8E1E211BCECC0072B67E /* ShowCollectionInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E8E1D211BCECC0072B67E /* ShowCollectionInteractorTest.swift */; };
 		AA3FF131211A4BAA00F44EDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF130211A4BAA00F44EDE /* AppDelegate.swift */; };
 		AA3FF133211A4BAA00F44EDE /* ShowsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FF132211A4BAA00F44EDE /* ShowsCollectionViewController.swift */; };
 		AA3FF136211A4BAA00F44EDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3FF134211A4BAA00F44EDE /* Main.storyboard */; };
@@ -25,6 +28,16 @@
 		B4A240215EAD90B4A1E67FA8 /* Pods_AmazingShowsDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FB186C3039EE06119FC691 /* Pods_AmazingShowsDB.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AA0E8E16211BB8E60072B67E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA3FF125211A4BAA00F44EDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA3FF12C211A4BAA00F44EDE;
+			remoteInfo = AmazingShowsDB;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		00FB186C3039EE06119FC691 /* Pods_AmazingShowsDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmazingShowsDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C82012FCFCD95D975ABB6B /* Pods-AmazingShowsDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingShowsDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingShowsDB/Pods-AmazingShowsDB.release.xcconfig"; sourceTree = "<group>"; };
@@ -33,6 +46,11 @@
 		78B246B1211B3AF300AABCE4 /* BaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataManager.swift; sourceTree = "<group>"; };
 		78B246B4211B575800AABCE4 /* ShowCollectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCollectionInteractor.swift; sourceTree = "<group>"; };
 		AA0E8E0B211BAFC70072B67E /* ShowsCollectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsCollectionRouter.swift; sourceTree = "<group>"; };
+		AA0E8E11211BB8E60072B67E /* AmazingShowsDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmazingShowsDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0E8E13211BB8E60072B67E /* ShowCollectionRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCollectionRouterTests.swift; sourceTree = "<group>"; };
+		AA0E8E15211BB8E60072B67E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA0E8E1B211BBB430072B67E /* ShowCollectionPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCollectionPresenterTests.swift; sourceTree = "<group>"; };
+		AA0E8E1D211BCECC0072B67E /* ShowCollectionInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCollectionInteractorTest.swift; sourceTree = "<group>"; };
 		AA3FF12D211A4BAA00F44EDE /* AmazingShowsDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingShowsDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3FF130211A4BAA00F44EDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA3FF132211A4BAA00F44EDE /* ShowsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +67,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AA0E8E0E211BB8E60072B67E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA3FF12A211A4BAA00F44EDE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -109,10 +134,22 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		AA0E8E12211BB8E60072B67E /* AmazingShowsDBTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA0E8E1D211BCECC0072B67E /* ShowCollectionInteractorTest.swift */,
+				AA0E8E1B211BBB430072B67E /* ShowCollectionPresenterTests.swift */,
+				AA0E8E13211BB8E60072B67E /* ShowCollectionRouterTests.swift */,
+				AA0E8E15211BB8E60072B67E /* Info.plist */,
+			);
+			path = AmazingShowsDBTests;
+			sourceTree = "<group>";
+		};
 		AA3FF124211A4BAA00F44EDE = {
 			isa = PBXGroup;
 			children = (
 				AA3FF12F211A4BAA00F44EDE /* AmazingShowsDB */,
+				AA0E8E12211BB8E60072B67E /* AmazingShowsDBTests */,
 				AA3FF12E211A4BAA00F44EDE /* Products */,
 				55710943803465AE68F066EC /* Pods */,
 				5DD72C4AB78F2372020369A7 /* Frameworks */,
@@ -123,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				AA3FF12D211A4BAA00F44EDE /* AmazingShowsDB.app */,
+				AA0E8E11211BB8E60072B67E /* AmazingShowsDBTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +255,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AA0E8E10211BB8E60072B67E /* AmazingShowsDBTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0E8E18211BB8E60072B67E /* Build configuration list for PBXNativeTarget "AmazingShowsDBTests" */;
+			buildPhases = (
+				AA0E8E0D211BB8E60072B67E /* Sources */,
+				AA0E8E0E211BB8E60072B67E /* Frameworks */,
+				AA0E8E0F211BB8E60072B67E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA0E8E17211BB8E60072B67E /* PBXTargetDependency */,
+			);
+			name = AmazingShowsDBTests;
+			productName = AmazingShowsDBTests;
+			productReference = AA0E8E11211BB8E60072B67E /* AmazingShowsDBTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AA3FF12C211A4BAA00F44EDE /* AmazingShowsDB */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA3FF13F211A4BAC00F44EDE /* Build configuration list for PBXNativeTarget "AmazingShowsDB" */;
@@ -246,6 +302,10 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Pablo Cobucci Leite";
 				TargetAttributes = {
+					AA0E8E10211BB8E60072B67E = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = AA3FF12C211A4BAA00F44EDE;
+					};
 					AA3FF12C211A4BAA00F44EDE = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -265,11 +325,19 @@
 			projectRoot = "";
 			targets = (
 				AA3FF12C211A4BAA00F44EDE /* AmazingShowsDB */,
+				AA0E8E10211BB8E60072B67E /* AmazingShowsDBTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AA0E8E0F211BB8E60072B67E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA3FF12B211A4BAA00F44EDE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,6 +390,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AA0E8E0D211BB8E60072B67E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0E8E14211BB8E60072B67E /* ShowCollectionRouterTests.swift in Sources */,
+				AA0E8E1E211BCECC0072B67E /* ShowCollectionInteractorTest.swift in Sources */,
+				AA0E8E1C211BBB430072B67E /* ShowCollectionPresenterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA3FF129211A4BAA00F44EDE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,6 +421,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AA0E8E17211BB8E60072B67E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA3FF12C211A4BAA00F44EDE /* AmazingShowsDB */;
+			targetProxy = AA0E8E16211BB8E60072B67E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		AA3FF134211A4BAA00F44EDE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -363,6 +449,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AA0E8E19211BB8E60072B67E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 84K279ZBCN;
+				INFOPLIST_FILE = AmazingShowsDBTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablocleite.AmazingShowsDBTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmazingShowsDB.app/AmazingShowsDB";
+			};
+			name = Debug;
+		};
+		AA0E8E1A211BB8E60072B67E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 84K279ZBCN;
+				INFOPLIST_FILE = AmazingShowsDBTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablocleite.AmazingShowsDBTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmazingShowsDB.app/AmazingShowsDB";
+			};
+			name = Release;
+		};
 		AA3FF13D211A4BAC00F44EDE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -520,6 +648,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AA0E8E18211BB8E60072B67E /* Build configuration list for PBXNativeTarget "AmazingShowsDBTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0E8E19211BB8E60072B67E /* Debug */,
+				AA0E8E1A211BB8E60072B67E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AA3FF128211A4BAA00F44EDE /* Build configuration list for PBXProject "AmazingShowsDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
