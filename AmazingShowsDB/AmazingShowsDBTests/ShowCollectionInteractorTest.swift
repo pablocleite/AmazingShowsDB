@@ -55,6 +55,8 @@ class ShowCollectionInteractorTest: XCTestCase {
     
     func testInterator() {
         presenter.finishLoadingExpectation = expectation(description: "Loaded shows.")
+        //It will be fulfilled after loading shows and then after loading its posters.
+        presenter.finishLoadingExpectation.expectedFulfillmentCount = 2
         interactor.loadShows()
         waitForExpectations(timeout: 2.0, handler: nil)
         if let shows = presenter.shows {

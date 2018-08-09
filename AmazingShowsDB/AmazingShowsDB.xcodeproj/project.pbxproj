@@ -116,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				78B246B1211B3AF300AABCE4 /* BaseDataManager.swift */,
+				AA3FF14A211A584300F44EDE /* TraktShowDataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -170,6 +171,7 @@
 		AA3FF12F211A4BAA00F44EDE /* AmazingShowsDB */ = {
 			isa = PBXGroup;
 			children = (
+				AA3FF146211A563800F44EDE /* Entities */,
 				78B246B0211B3AD200AABCE4 /* DataManager */,
 				AA3FF151211A8F7500F44EDE /* TMDB */,
 				AA3FF142211A532B00F44EDE /* ShowsCollection */,
@@ -190,8 +192,6 @@
 				787C4AD5211B73BF00ADAEEE /* Presenter */,
 				78B246B3211B574000AABCE4 /* Interactor */,
 				AA3FF14C211A77D400F44EDE /* ViewModel */,
-				AA3FF149211A582500F44EDE /* DataManager */,
-				AA3FF146211A563800F44EDE /* Entities */,
 				AA3FF143211A55A300F44EDE /* View */,
 			);
 			path = ShowsCollection;
@@ -212,14 +212,6 @@
 				AA3FF147211A564B00F44EDE /* Show.swift */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		AA3FF149211A582500F44EDE /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-				AA3FF14A211A584300F44EDE /* TraktShowDataManager.swift */,
-			);
-			path = DataManager;
 			sourceTree = "<group>";
 		};
 		AA3FF14C211A77D400F44EDE /* ViewModel */ = {
