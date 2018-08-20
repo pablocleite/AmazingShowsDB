@@ -42,6 +42,13 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="EU4-AT-0DG">
+                                <rect key="frame" x="170.33333333333334" y="389.33333333333331" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="FVt-x9-UZZ"/>
+                                    <constraint firstAttribute="width" constant="35" id="LgK-WU-pfY"/>
+                                </constraints>
+                            </activityIndicatorView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RQk-xK-n7O" userLabel="ShowsCollectionView">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,7 +74,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYT-Wv-ODJ">
-                                                    <rect key="frame" x="11" y="142.66666666666666" width="78" height="14.333333333333343"/>
+                                                    <rect key="frame" x="37.666666666666664" y="142.66666666666666" width="25" height="14.333333333333343"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -77,11 +84,11 @@
                                         <constraints>
                                             <constraint firstItem="BA7-wE-a4p" firstAttribute="leading" secondItem="fSH-7X-ezh" secondAttribute="leading" constant="6" id="3aU-35-jlI"/>
                                             <constraint firstAttribute="trailing" secondItem="BA7-wE-a4p" secondAttribute="trailing" constant="6" id="98r-GZ-3h2"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="hYT-Wv-ODJ" secondAttribute="trailing" constant="3" id="9qp-jn-nXP"/>
+                                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hYT-Wv-ODJ" secondAttribute="trailing" constant="3" id="9qp-jn-nXP"/>
                                             <constraint firstItem="BA7-wE-a4p" firstAttribute="top" secondItem="fSH-7X-ezh" secondAttribute="top" constant="6" id="D7r-Ki-brU"/>
                                             <constraint firstItem="hYT-Wv-ODJ" firstAttribute="top" secondItem="BA7-wE-a4p" secondAttribute="bottom" constant="4" id="aLt-y8-V2q"/>
                                             <constraint firstItem="hYT-Wv-ODJ" firstAttribute="centerX" secondItem="fSH-7X-ezh" secondAttribute="centerX" id="iQM-DA-Hsl"/>
-                                            <constraint firstItem="hYT-Wv-ODJ" firstAttribute="leading" secondItem="fSH-7X-ezh" secondAttribute="leadingMargin" constant="3" id="m07-Tm-qEh"/>
+                                            <constraint firstItem="hYT-Wv-ODJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fSH-7X-ezh" secondAttribute="leadingMargin" constant="3" id="m07-Tm-qEh"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="posterImageView" destination="BA7-wE-a4p" id="fnj-9A-wwr"/>
@@ -94,6 +101,8 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RQk-xK-n7O" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="BVO-yP-S9Q"/>
+                            <constraint firstItem="EU4-AT-0DG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CLT-V8-Vz0"/>
+                            <constraint firstItem="EU4-AT-0DG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ECZ-gH-5ov"/>
                             <constraint firstItem="RQk-xK-n7O" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PGK-t7-Shc"/>
                             <constraint firstItem="qya-JF-Pf5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="azJ-zp-zaB"/>
                             <constraint firstItem="RQk-xK-n7O" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iOg-JJ-jw7"/>
@@ -103,6 +112,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="EU4-AT-0DG" id="BW6-aF-cB9"/>
                         <outlet property="errorLabel" destination="qya-JF-Pf5" id="vqq-gX-H3j"/>
                         <outlet property="showsCollectionView" destination="RQk-xK-n7O" id="uc6-zp-ckz"/>
                     </connections>

@@ -25,6 +25,10 @@ class ShowCollectionPresenter: ShowCollectionPresenterProtocol, ShowCollectionIn
     }
     
     func updateView() {
+        if view.shows == nil {
+            //Only display loading if view is empty.
+            view?.displayLoadingShows()
+        }
         interactor.loadShows()
     }
     

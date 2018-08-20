@@ -14,10 +14,11 @@ class ShowCollectionPresenterTests: XCTestCase {
     case mock
   }
     
-  class MockShowCollectionView: ShowCollectionViewProtocol {
-    
+    class MockShowCollectionView: ShowCollectionViewProtocol {
+        
         var didSetShows = false
         var didShowError = false
+        var didShowLoadingShows = false
         var presenter: ShowCollectionPresenterProtocol!
         var shows: [ShowViewModel]? {
             didSet {
@@ -27,6 +28,16 @@ class ShowCollectionPresenterTests: XCTestCase {
     
         func displayError() {
             didShowError = true
+        }
+        
+        func displayLoadingShows() {
+            didShowLoadingShows = true
+        }
+        
+        func reload() {
+            didShowLoadingShows = false
+            didShowError = false
+            didSetShows = false
         }
     }
     
@@ -68,7 +79,20 @@ class ShowCollectionPresenterTests: XCTestCase {
         presenter.updateView()
         
         XCTAssert(interactor.didCallLoadShows)
+        XCTAssert(view.didShowLoadingShows)
         XCTAssert(view.didSetShows)
+    }
+    
+    func testViewReload() {
+        let presenter = self.presenter!
+        presenter.updateView()
+        
+        XCTAssert(interactor.didCallLoadShows)
+        view.reload()
+        presenter.updateView()
+        XCTAssert(view.didSetShows)
+        XCTAssert(!view.didShowLoadingShows)
+        XCTAssert(!view.didShowError)
     }
   
     func testViewWithError() {

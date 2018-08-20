@@ -14,6 +14,7 @@ protocol ShowCollectionViewProtocol {
     var shows: [ShowViewModel]? {get set}
     
     func displayError()
+    func displayLoadingShows()
 }
 
 class ShowCollectionViewController: UIViewController, ShowCollectionViewProtocol {
@@ -21,6 +22,7 @@ class ShowCollectionViewController: UIViewController, ShowCollectionViewProtocol
     static let identifier = "ShowCollectionViewController"
     
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var showsCollectionView: UICollectionView! {
         didSet {
             showsCollectionView.delegate = self
@@ -41,6 +43,7 @@ class ShowCollectionViewController: UIViewController, ShowCollectionViewProtocol
             DispatchQueue.main.async { [weak self] in
                 self?.hideError()
                 self?.refreshControl.endRefreshing()
+                self?.activityIndicator.stopAnimating()
                 self?.showsCollectionView.reloadData()
             }
         }
@@ -61,6 +64,12 @@ class ShowCollectionViewController: UIViewController, ShowCollectionViewProtocol
         DispatchQueue.main.async { [weak self] in
             self?.errorLabel.isHidden = false
             self?.refreshControl.endRefreshing()
+        }
+    }
+    
+    func displayLoadingShows() {
+        DispatchQueue.main.async { [weak self] in
+            self?.activityIndicator.startAnimating()
         }
     }
     
