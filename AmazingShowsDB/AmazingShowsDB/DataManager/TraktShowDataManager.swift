@@ -16,15 +16,14 @@ final class TraktShowDataManager: BaseDataManager<[Show]> {
     
     override init() {
         super.init()
-        sessionConfiguration = URLSessionConfiguration.default
-        sessionConfiguration?.httpAdditionalHeaders = [
+        sessionConfiguration.httpAdditionalHeaders = [
             "Content-type" : "application/json",
             "trakt-api-key" : apiKeyFor(service: .trakt),
             "trakt-api-version" : apiVersion
         ]
     }
     
-    override func performFetch(result: @escaping (Result<[Show]>) -> Void) {
+    override func performFetch(result: ((Result<[Show]>) -> Void)?) {
         guard let url = TraktShowDataManager.trendingTracktShowsURL else {
             print("serviceURL cannot be nil!")
             return
@@ -36,12 +35,12 @@ final class TraktShowDataManager: BaseDataManager<[Show]> {
                 let decoder = JSONDecoder()
                 do {
                     let shows = try decoder.decode([Show].self, from: data)
-                    result(.success(shows))
+                    result?(.success(shows))
                 } catch {
-                    result(.error(error))
+                    result?(.error(error))
                 }
             case .error(let error):
-                result(.error(error))
+                result?(.error(error))
             }
         }
     }

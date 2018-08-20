@@ -35,7 +35,7 @@ final class TMDBPosterDataManager: BaseDataManager<[Int:TMDBPosterEntity]> {
         return URL(string: endpoint, relativeTo: TMDBPosterDataManager.tmdbBaseUrl)
     }
     
-    override func performFetch(result: @escaping (Result<[Int:TMDBPosterEntity]>) -> Void) {
+    override func performFetch(result: ((Result<[Int:TMDBPosterEntity]>) -> Void)?) {
         
         let group = DispatchGroup()
         let queue = DispatchQueue(label: "thread-safe-array-access", attributes: .concurrent)
@@ -46,8 +46,7 @@ final class TMDBPosterDataManager: BaseDataManager<[Int:TMDBPosterEntity]> {
             }
             
             let urlRequest = URLRequest(url: url)
-            let config = URLSessionConfiguration.default
-            let session = URLSession(configuration: config)
+            let session = URLSession(configuration: sessionConfiguration)
             
             let task = session.dataTask(with: urlRequest) { (data, response, error) in
                 defer { group.leave() }
@@ -83,12 +82,12 @@ final class TMDBPosterDataManager: BaseDataManager<[Int:TMDBPosterEntity]> {
         
         group.notify(queue: .main) {
             guard !self.postersDict.isEmpty && self.errors.isEmpty else {
-                result(.error(RequestError.unspecified))
+                result?(.error(RequestError.unspecified))
                 return
             }
             
             queue.sync {
-                result(.success(self.postersDict))
+                result?(.success(self.postersDict))
             }
         }
     }

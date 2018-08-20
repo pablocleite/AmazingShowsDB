@@ -24,33 +24,34 @@ enum Service: String {
 
 class BaseDataManager<T> {
     
-    var sessionConfiguration: URLSessionConfiguration?
+    var sessionConfiguration: URLSessionConfiguration = {
+        var sessionConfiguration = URLSessionConfiguration.default
+        //Url will be displayed as a memory leak on the instruments, let's disable it for now.
+        sessionConfiguration.urlCache = nil;
+        sessionConfiguration.timeoutIntervalForRequest = 20.0;
+        sessionConfiguration.requestCachePolicy = .reloadIgnoringLocalCacheData;
+        return sessionConfiguration
+    }()
     
-    func performFetch(result: @escaping (Result<T>) -> Void) {
+    func performFetch(result: ((Result<T>) -> Void)?) {
         //Default implementation does nothing. This method is meant to be overriden by subclasses
     }
     
-    func fetchDataFromUrl(_ url: URL, withResult result: @escaping (Result<Data>) -> Void) {
+    func fetchDataFromUrl(_ url: URL, withResult result: ((Result<Data>) -> Void)?) {
         
-        let urlSession: URLSession
-        if let sessionConfiguration = sessionConfiguration {
-            urlSession = URLSession(configuration: sessionConfiguration)
-        } else {
-            urlSession = URLSession.shared
-        }
-        
+        let urlSession = URLSession(configuration: sessionConfiguration)
+
         urlSession.dataTask(with: url) { (data, response, error) in
             guard let data = data else {
                 if let error = error {
-                    
-                    result(.error(error))
+                    result?(.error(error))
                 } else {
-                    result(.error(RequestError.unspecified))
+                    result?(.error(RequestError.unspecified))
                 }
                 return
             }
             
-            result(.success(data))
+            result?(.success(data))
             
             }.resume()
     }
